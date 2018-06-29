@@ -2,7 +2,7 @@
   "name": "Space Coast Tech Club",
   "short_name": "🚀techclub",
   "theme_color": "#512da8",
-  "background_color": "#fafafa",
+  "background_color": "#9575cd",
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
