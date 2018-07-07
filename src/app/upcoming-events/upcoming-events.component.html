@@ -16,7 +16,7 @@
 </table> -->
 
 <div class="d-flex flex-wrap">
-  <div *ngFor="let event of events" class="col-xs-6 col-sm-4 col-lg-3 mb-3">
+  <div *ngFor="let event of events" class="col-xs-6 col-sm-4 col-lg-3 d-flex align-items-stretch mb-3">
     <div class="card">
       <img *ngIf="event.featured_photo" class="card-img-top" src="{{ event.featured_photo.photo_link }}" alt="{{ event.name }}">
       <div class="card-body">
