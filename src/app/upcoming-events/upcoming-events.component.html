@@ -1,0 +1,16 @@
+<h1>Upcoming Events</h1>
+
+<table class="table table-dark table-striped">
+  <tr>
+    <th scope="col">Name</th>
+    <th scope="col">Venue</th>
+    <th scope="col">Date</th>
+    <th scope="col">Time</th>
+  </tr>
+  <tr *ngFor="let event of events">
+    <td> {{ event.name }} </td>
+    <td> {{ event.venue ? event.venue.name : 'n/a' }} </td>
+    <td> {{ event.local_date ? event.local_date : 'n/a' }} </td>
+    <td> {{ event.local_time }} </td>
+  </tr>
+</table>

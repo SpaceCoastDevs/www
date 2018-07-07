@@ -7,11 +7,14 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HttpClientJsonpModule } from '@angular/common/http';
+import { UpcomingEventsComponent } from './upcoming-events/upcoming-events.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UpcomingEventsComponent
   ],
   imports: [
     BrowserModule,
@@ -20,7 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     AngularFirestoreModule, // imports firebase/firestore, only needed for database features
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
-    HttpClientModule
+    HttpClientModule,
+    HttpClientJsonpModule
   ],
   providers: [],
   bootstrap: [AppComponent]
