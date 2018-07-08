@@ -15,6 +15,41 @@
 <body>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <a class="navbar-brand" href="#">Space Coast Tech Club</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbar-menu">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="https://spacecoasttech.slack.com">
+            <strong>Sign In</strong>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://spacecoasttechclub.herokuapp.com/">
+            <strong>Sign Up</strong>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/coc">
+            <strong>Code of Conduct</strong>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.facebook.com/spacecoasttechclub/">
+            <strong>Facebook</strong>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://twitter.com/spacecoast_tech">
+            <strong>Twitter</strong>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+
   </nav>
 
   <main role="main">
@@ -22,16 +57,18 @@
   </main>
 
   <footer class="container">
-    <h3 id="sign-up-for-our-eventual-newsletter">Sign up for our eventual newsletter</h3>
-    <form action="https://tinyletter.com/spacecoasttechclub" method="post"
-      target="popupwindow" onsubmit="window.open('https://tinyletter.com/spacecoasttechclub', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
-      <div class="form-group">
-        <label for="tlemail">Enter your email address</label>
-        <input type="email" class="form-control" name="email" id="tlemail" aria-describedby="emailHelp" placeholder="Enter email" />
-      </div>
-      <input type="hidden" value="1" name="embed" />
-      <button type="submit" class="btn btn-primary">Subscribe</button>
-    </form>
+    <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+      <h3 id="newsletter-sign-up">Sign up for our eventual newsletter</h3>
+      <form action="https://tinyletter.com/spacecoasttechclub" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/spacecoasttechclub', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <div class="form-group">
+          <label for="tlemail">Enter your email address</label>
+          <input type="email" class="form-control" name="email" id="tlemail" aria-describedby="emailHelp" placeholder="Enter email"
+          />
+        </div>
+        <input type="hidden" value="1" name="embed" />
+        <button type="submit" class="btn btn-primary">Subscribe</button>
+      </form>
+    </div>
     <p>&copy; Space Coast Tech Club 2018</p>
   </footer>
 

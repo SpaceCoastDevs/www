@@ -15,19 +15,25 @@
   </tr>
 </table> -->
 
-<div class="d-flex flex-wrap">
-  <div *ngFor="let event of events" class="col-xs-6 col-sm-4 col-lg-3 d-flex align-items-stretch mb-3">
+<div class="d-flex flex-wrap flex-grow flex-fill">
+  <div *ngFor="let event of events" class="col-xs-6 col-sm-6 col-md-4 col-lg-3 d-flex align-items-stretch mb-3">
     <div class="card">
       <img *ngIf="event.featured_photo" class="card-img-top" src="{{ event.featured_photo.photo_link }}" alt="{{ event.name }}">
+      <div class="card-header">
+        <a href="{{ event.link }}">
+          <h2 class="card-title">{{ event.name }}</h2>
+        </a>
+      </div>
       <div class="card-body">
-        <a href="{{ event.link }}"><h2 class="card-title">{{ event.name }}</h2></a>
-        <p class="flex-text text-muted">{{ event.venue ? event.venue.name : 'n/a' }}</p>
-        <p>
-          <span class="badge badge-pill badge-dark">
-            <i class="far fa-calendar-alt"></i> {{ event.local_date ? event.local_date : 'n/a' }}</span>&nbsp;
-          <span class="badge badge-pill badge-dark">
-            <i class="far fa-clock"></i> {{ event.local_time }}</span>&nbsp;
-        </p>
+        <h3 class="card-title">{{ event.group.name }}</h3>
+          <div class="card-text">
+            <p *ngIf="event.venue" class="flex-text text-muted">{{ event.venue.name }}</p>
+          </div>
+      </div>
+      <div class="card-footer text-muted">
+        <i class="far fa-calendar-alt"></i> {{ event.local_date ? event.local_date : 'n/a' }}
+        <br />
+        <i class="far fa-clock"></i> {{ event.local_time }}
       </div>
     </div>
   </div>
