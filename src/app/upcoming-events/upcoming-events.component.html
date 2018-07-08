@@ -15,9 +15,9 @@
   </tr>
 </table> -->
 
-<div class="d-flex flex-wrap flex-grow flex-fill">
+<div class="d-flex flex-wrap">
   <div *ngFor="let event of events" class="col-xs-6 col-sm-6 col-md-6 col-lg-4 d-flex align-items-stretch mb-3">
-    <div class="card border-primary">
+    <div class="card border-primary flex-grow flex-fill">
       <div class="card-header text-white bg-light">
         <a href="{{ event.link }}">
           <h2 class="card-title">{{ event.name }}</h2>
