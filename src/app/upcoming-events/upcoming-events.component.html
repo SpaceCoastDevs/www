@@ -40,3 +40,34 @@
     </div>
   </div>
 </div>
+
+<div class="container">
+  <table class="table table-striped table-responsive pb-4">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Group</th>
+        <th scope="col">Venue</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of events.slice(5)">
+        <th scope="row">
+          <a class="text-danger" href="{{ event.link }}">
+            <h2 class="card-title small font-weight-bold text-uppercase">{{ event.name }}</h2>
+          </a>
+        </th>
+        <td>
+          {{ event.group.name }}</td>
+        <td>
+          {{ event.venue ? event.venue.name : 'n/a' }}</td>
+        <td>
+          {{ event.local_date ? event.local_date : 'n/a' }}</td>
+        <td>
+          {{ event.local_time }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
