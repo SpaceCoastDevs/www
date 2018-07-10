@@ -32,7 +32,7 @@
           <li class="list-group-item">
             <i class="fas fa-compass text-warning"></i> {{ event.venue ? event.venue.name : 'n/a' }}</li>
           <li class="list-group-item">
-            <i class="fas fa-calendar-alt text-warning"></i> {{ event.local_date ? event.local_date : 'n/a' }}</li>
+            <i class="fas fa-calendar-alt text-warning"></i> {{ event.local_date ? ( event.local_date | date:'EEE MMM d' ) : 'n/a' }}</li>
           <li class="list-group-item">
             <i class="fas fa-clock text-warning"></i> {{ event.local_time }}</li>
         </ul>
@@ -64,7 +64,7 @@
         <td>
           {{ event.venue ? event.venue.name : 'n/a' }}</td>
         <td>
-          {{ event.local_date ? event.local_date : 'n/a' }}</td>
+          {{ event.local_date ? ( event.local_date | date:'EEE MMM d' ) : 'n/a' }}</td>
         <td>
           {{ event.local_time }}</td>
       </tr>
