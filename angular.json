@@ -25,7 +25,7 @@
             ],
             "styles": [
               "src/_variables.scss",
-              "node_modules/bootstrap-css-only/css/bootstrap.min.css",
+              "src/bootstrap.min.css",
               "node_modules/@fortawesome/fontawesome-free/css/all.css",
               "src/styles.scss"
             ],

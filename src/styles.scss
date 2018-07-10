@@ -1,7 +1,7 @@
 body > main {
     background-image: url('/assets/img/seigaiha.png');
     background-repeat: repeat;
-    background-color: #6c757d;
+    background-color: #69D2E7;
 }
 
 .circle {
@@ -17,4 +17,12 @@ body > main {
     text-align: center;
     display: block;
     padding: 5px;
+}
+
+#welcome-to-the-space-coast-tech-club, .jumbotron p {
+    color: white;
+}
+
+.jumbotron {
+    background-color: #69D2E7;
 }

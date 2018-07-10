@@ -1,5 +1,6 @@
-<h1>Upcoming Events</h1>
-
+<div class="container">
+  <h1>Upcoming Events</h1>
+</div>
 <!-- <table class="table table-dark table-striped">
   <tr>
     <th scope="col">Name</th>
@@ -15,25 +16,25 @@
   </tr>
 </table> -->
 
-<div class="d-flex flex-wrap">
-  <div *ngFor="let event of events" class="col-xs-6 col-sm-6 col-md-6 col-lg-4 d-flex align-items-stretch mb-3">
+<div class="d-flex flex-wrap pb-4">
+  <div *ngFor="let event of events.slice(0, 4)" class="col-xs-6 col-sm-6 col-md-6 col-lg-3 d-flex align-items-stretch mb-3">
     <div class="card border-primary flex-grow flex-fill">
-      <div class="card-header text-white bg-light">
+      <div class="card-header">
         <a href="{{ event.link }}">
-          <h2 class="card-title">{{ event.name }}</h2>
+          <h2 class="card-title small font-weight-bold text-uppercase">{{ event.name }}</h2>
         </a>
       </div>
-      <div class="card-body text-muted">
+      <div class="card-body">
         <img *ngIf="event.featured_photo" class="card-img" src="{{ event.featured_photo.photo_link }}" alt="{{ event.name }}">
         <ul class="list-group list-group-flush">
           <li class="list-group-item">
-            <i class="fas fa-greater-than"></i> {{ event.group.name }}</li>
+            <i class="fas fa-chevron-circle-right text-warning"></i> {{ event.group.name }}</li>
           <li class="list-group-item">
-            <i class="far fa-compass"></i> {{ event.venue ? event.venue.name : 'n/a' }}</li>
+            <i class="fas fa-compass text-warning"></i> {{ event.venue ? event.venue.name : 'n/a' }}</li>
           <li class="list-group-item">
-            <i class="far fa-calendar-alt"></i> {{ event.local_date ? event.local_date : 'n/a' }}</li>
+            <i class="fas fa-calendar-alt text-warning"></i> {{ event.local_date ? event.local_date : 'n/a' }}</li>
           <li class="list-group-item">
-            <i class="far fa-clock"></i> {{ event.local_time }}</li>
+            <i class="fas fa-clock text-warning"></i> {{ event.local_time }}</li>
         </ul>
       </div>
     </div>
