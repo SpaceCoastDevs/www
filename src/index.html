@@ -21,6 +21,13 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbar-menu">
+        <button class="btn btn-light btn-margin" *ngIf="!auth.isAuthenticated()" (click)="auth.login()">
+          Log In
+        </button>
+
+        <button class="btn btn-light btn-margin" *ngIf="auth.isAuthenticated()" (click)="auth.logout()">
+          Log Out
+        </button>
         <ul class="navbar-nav mr-auto">
           <li class="nav-item">
             <a class="nav-link" href="https://spacecoasttech.slack.com">
@@ -55,24 +62,24 @@
       </form>
     </div>
     <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">
-              <a href="/coc">
-                <strong>Code of Conduct</strong>
-              </a>
-            </li>
-            <li class="list-group-item">
-              <a href="https://www.facebook.com/spacecoasttechclub/">
-                <strong>Facebook</strong>
-              </a>
-            </li>
-            <li class="list-group-item">
-              <a href="https://twitter.com/spacecoast_tech">
-                <strong>Twitter</strong>
-              </a>
-            </li>
-          </ul>
-        </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <a href="/coc">
+            <strong>Code of Conduct</strong>
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="https://www.facebook.com/spacecoasttechclub/">
+            <strong>Facebook</strong>
+          </a>
+        </li>
+        <li class="list-group-item">
+          <a href="https://twitter.com/spacecoast_tech">
+            <strong>Twitter</strong>
+          </a>
+        </li>
+      </ul>
+    </div>
     <p>&copy; Space Coast Tech Club 2018</p>
   </footer>
 
