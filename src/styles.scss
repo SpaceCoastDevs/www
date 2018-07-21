@@ -1,11 +1,13 @@
+@import "_variables.scss";
+
 body {
-  background-color: #f38630 !important;
+  background-color: $warning !important;
 }
 
 #upcoming-events {
     background-image: url('/assets/img/seigaiha.png');
     background-repeat: repeat;
-    background-color: #69D2E7;
+    background-color: $primary;
 }
 
 #welcome-to-the-space-coast-tech-club, .jumbotron p {
@@ -13,5 +15,9 @@ body {
 }
 
 .jumbotron {
-    background-color: #69D2E7;
+    background-color: $primary;
+}
+
+footer {
+  background-color: white;
 }
