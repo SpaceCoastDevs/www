@@ -9,12 +9,14 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientJsonpModule } from '@angular/common/http';
 import { UpcomingEventsComponent } from './upcoming-events/upcoming-events.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UpcomingEventsComponent
+    UpcomingEventsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
