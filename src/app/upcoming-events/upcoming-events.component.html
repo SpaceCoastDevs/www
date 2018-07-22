@@ -34,10 +34,10 @@
         <thead class="thead-light">
           <tr>
             <th scope="col">Name</th>
-            <th scope="col">Group</th>
-            <th scope="col">Venue</th>
+            <th class="d-none d-sm-table-cell" scope="col">Group</th>
+            <th class="d-none d-sm-table-cell" scope="col">Venue</th>
             <th scope="col">Date</th>
-            <th scope="col">Time</th>
+            <th class="d-none d-sm-table-cell" scope="col">Time</th>
           </tr>
         </thead>
         <tbody>
@@ -47,13 +47,13 @@
                 <h2 class="card-title small font-weight-bold text-uppercase">{{ event.name }}</h2>
               </a>
             </th>
-            <td>
+            <td class="d-none d-sm-table-cell">
               {{ event.group.name }}</td>
-            <td>
+            <td class="d-none d-sm-table-cell">
               {{ event.venue ? event.venue.name : 'n/a' }}</td>
             <td>
               {{ event.local_date ? ( event.local_date | date:'EEE MMM d' ) : 'n/a' }}</td>
-            <td>
+            <td class="d-none d-sm-table-cell">
               {{ event.local_time }}</td>
           </tr>
         </tbody>
