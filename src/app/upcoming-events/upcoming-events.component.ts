@@ -19,7 +19,6 @@ export class UpcomingEventsComponent implements OnInit {
     this.meetupService.getUpcomingEvents(lat, lon, radius).subscribe((data: Array<object>) => {
       this.city = data['data']['city'];
       this.events = data['data']['events'];
-      console.log(data);
     });
   }
 
