@@ -12,10 +12,13 @@ export class MeetupService {
 
   API_URL  =  'https://api.meetup.com';
   API_KEY =   '5c483b7f507144933403e5d4311e48';
-  GROUP_IDS_TO_EXCLUDE = '27306031,25219234';
+  GROUP_IDS_TO_EXCLUDE = '27306031,25219234,26307553,25328430';
+  GROUP_IDS_TO_INCLUDE = '5292112';
 
-  // tslint:disable-next-line:max-line-length
-  UPCOMING_EVENTS = '/find/upcoming_events?&sign=true&photo-host=secure&excluded_groups=' + this.GROUP_IDS_TO_EXCLUDE + '&topic_category=292&order=time&fields=featured_photo,group_category&callback=JSONP_CALLBACK';
+
+  UPCOMING_EVENTS = '/find/upcoming_events?&sign=true&photo-host=secure&excluded_groups=' +
+    this.GROUP_IDS_TO_EXCLUDE + '&topic_category=292&order=time' +
+    '&fields=featured_photo,group_category&self_groups=include&callback=JSONP_CALLBACK';
 
   getUpcomingEvents( lat: number , lon: number , radius: number ) {
 
