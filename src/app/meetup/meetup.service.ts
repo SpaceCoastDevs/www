@@ -18,7 +18,7 @@ export class MeetupService {
 
   UPCOMING_EVENTS = '/find/upcoming_events?&sign=true&photo-host=secure&excluded_groups=' +
     this.GROUP_IDS_TO_EXCLUDE + '&topic_category=292&order=time' +
-    '&fields=featured_photo,group_category&self_groups=include&callback=JSONP_CALLBACK';
+    '&fields=featured_photo,group_category,group_key_photo&self_groups=include&callback=JSONP_CALLBACK';
 
   getUpcomingEvents( lat: number , lon: number , radius: number ) {
 
