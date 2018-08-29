@@ -18,8 +18,13 @@ export class UpcomingEventsComponent implements OnInit {
   public getUpcomingEvents(lat: number, lon: number, radius: number) {
     this.meetupService.getUpcomingEvents(lat, lon, radius).subscribe((data: Array<object>) => {
       this.city = data['data']['city'];
-      this.events = data['data']['events'];
+      this.events = data['data']['events'].filter(function(obj) {
+        return obj.group.localized_location !== 'Orlando, FL';
+      });
     });
   }
 
 }
+
+
+
