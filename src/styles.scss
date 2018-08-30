@@ -3,9 +3,7 @@
 body {
   background-color: $warning !important;
 }
-main {
-  margin-top: 56px;
-}
+
 #upcoming-events {
     background-image: url('/assets/img/seigaiha.png');
     background-repeat: repeat;
@@ -13,6 +11,7 @@ main {
 }
 
 #welcome, .jumbotron p {
+  text-align: right;
 }
 
 .jumbotron {
@@ -27,4 +26,8 @@ footer {
   .display-4  {
          font-size: 1.5em !important;
      }
+}
+
+.navbar-brand {
+  margin-right: 0;
 }
