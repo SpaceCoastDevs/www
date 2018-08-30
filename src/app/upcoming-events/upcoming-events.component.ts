@@ -9,6 +9,7 @@ import { MeetupService } from '../meetup/meetup.service';
 export class UpcomingEventsComponent implements OnInit {
 
   public events: Array<object> = [];
+  public isCollapsed = false;
   private city: Array<object> = [];
   constructor(private meetupService: MeetupService) { }
 
@@ -23,8 +24,4 @@ export class UpcomingEventsComponent implements OnInit {
       });
     });
   }
-
 }
-
-
-
