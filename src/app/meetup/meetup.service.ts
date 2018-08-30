@@ -21,9 +21,6 @@ export class MeetupService {
     '&fields=featured_photo,group_category,group_key_photo&self_groups=include&callback=JSONP_CALLBACK';
 
   getUpcomingEvents( lat: number , lon: number , radius: number ) {
-
-
-
     const request_url = this.API_URL + this.UPCOMING_EVENTS + '&lat=' + lat + '&lon=' + lon + '&key=' +  this.API_KEY;
     return this.httpClient.jsonp (request_url, 'callback');
   }

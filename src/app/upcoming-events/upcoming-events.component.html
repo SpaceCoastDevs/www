@@ -5,8 +5,8 @@
         <h2>Upcoming Events</h2>
       </div>
     </div>
-    <div class="row d-flex flex-wrap pb-4">
-      <div *ngFor="let event of events.slice(0, 4)" class="col-xs-6 col-lg-3 d-flex align-items-stretch mb-3">
+    <div id="event-highlight" class="row d-flex flex-wrap pb-4">
+      <div *ngFor="let event of events.slice(0, 4)" class="col-xs-6 col-lg-3 d-flex align-items-stretch">
         <div class="card border-primary flex-grow flex-fill">
           <div class="card-header">
             <a href="{{ event.link }}">
@@ -32,7 +32,17 @@
         </div>
       </div>
     </div>
-    <div class="table-responsive">
+    <ng-template [ngIf]="isCollapsed" [ngIfElse]="notCollapsed">
+      <button class="btn btn-primary mb-4" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="isCollapsed" aria-controls="eventtable">
+        <i class="fas fa-minus"></i>
+      </button>
+    </ng-template>
+    <ng-template #notCollapsed>
+      <button class="btn btn-primary mb-4" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="isCollapsed" aria-controls="eventtable">
+          <i class="fas fa-plus"></i>
+      </button>
+    </ng-template>
+    <div id="eventtable" class="table-responsive" [ngbCollapse]="!isCollapsed">
       <table class="table table-striped mb-0">
         <thead class="thead-light">
           <tr>
