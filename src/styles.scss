@@ -4,10 +4,15 @@ body {
   background-color: $warning !important;
 }
 
-#upcoming-events {
-    background-image: url('/assets/img/seigaiha.png');
-    background-repeat: repeat;
-    background-color: $primary;
+.navbar-brand {
+  margin-right: 0;
+}
+
+.navbar-brand > img, main {
+	transition: .25s all;
+	-moz-transition: .25s all;
+	-webkit-transition: .25s all;
+	-o-transition: .25s all;  
 }
 
 #welcome, .jumbotron p {
@@ -16,6 +21,12 @@ body {
 
 .jumbotron {
     background-color: $primary;
+}
+
+#upcoming-events {
+  background-image: url('/assets/img/seigaiha.png');
+  background-repeat: repeat;
+  background-color: $primary;
 }
 
 footer {
@@ -28,6 +39,3 @@ footer {
      }
 }
 
-.navbar-brand {
-  margin-right: 0;
-}
