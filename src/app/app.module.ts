@@ -12,6 +12,8 @@ import { HttpClientJsonpModule } from '@angular/common/http';
 import { UpcomingEventsComponent } from './upcoming-events/upcoming-events.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { CodeofConductComponent } from './code-of-conduct/code-of-conduct.component';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -19,7 +21,8 @@ import { FooterComponent } from './footer/footer.component';
     AppComponent,
     UpcomingEventsComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    CodeofConductComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +32,8 @@ import { FooterComponent } from './footer/footer.component';
     ServiceWorkerModule.register('/ngsw-worker.js', {enabled: environment.production}),
     ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
     HttpClientModule,
-    HttpClientJsonpModule
+    HttpClientJsonpModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
