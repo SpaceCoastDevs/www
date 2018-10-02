@@ -7,9 +7,9 @@ pipelines:
         caches:
           - node
         script: # Modify the commands below to build your repository.
-          - ​npm install -g @angular/cli@latest
-          - ​npm install -g firebase-tools
-          - ​npm install
+          - npm install -g @angular/cli@latest
+          - npm install -g firebase-tools
+          - npm install
           - ng build --prod 
-          - ​echo "Deploying to production environment"
-          - ​firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
+          - echo "Deploying to production environment"
+          - firebase deploy --token=$FIREBASE_DEPLOY_TOKEN
