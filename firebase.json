@@ -6,12 +6,16 @@
       "**/.*",
       "**/node_modules/**"
     ],
-    "headers": [ {
-      "source" : "index.html",
-      "headers" : [ {
-        "key" : "Access-Control-Allow-Origin",
-        "value" : "https://api.meetup.com"
-      } ]
-    } ]
+    "headers": [{
+      "source": "index.html",
+      "headers": [{
+        "key": "Access-Control-Allow-Origin",
+        "value": "https://api.meetup.com"
+      }]
+    }],
+    "rewrites": [{
+      "source": "**",
+      "destination": "/index.html"
+    }]
   }
 }
