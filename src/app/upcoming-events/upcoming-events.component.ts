@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MeetupService } from '../meetup/meetup.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-upcoming-events',
@@ -11,7 +13,7 @@ export class UpcomingEventsComponent implements OnInit {
   public events: Array<object> = [];
   public isCollapsed = false;
   private city: Array<object> = [];
-  constructor(private meetupService: MeetupService) { }
+  constructor(private meetupService: MeetupService, private router: Router) { }
 
   ngOnInit() {
     this.getUpcomingEvents ( 28.07, -80.63, 15 );

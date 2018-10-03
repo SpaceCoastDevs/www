@@ -13,7 +13,7 @@ import { UpcomingEventsComponent } from './upcoming-events/upcoming-events.compo
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { CodeofConductComponent } from './code-of-conduct/code-of-conduct.component';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
