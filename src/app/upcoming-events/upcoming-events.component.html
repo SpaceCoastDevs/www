@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row pt-4">
       <div class="col-12">
-        <h2>Upcoming Events</h2>
+        <h2 id="events">Upcoming Events</h2>
       </div>
     </div>
     <div id="event-highlight" class="row d-flex flex-wrap pb-4">
@@ -32,17 +32,12 @@
         </div>
       </div>
     </div>
-    <ng-template [ngIf]="isCollapsed" [ngIfElse]="notCollapsed">
-      <button class="btn btn-primary mb-4" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="isCollapsed" aria-controls="eventtable">
-        <i class="fas fa-minus"></i>
-      </button>
-    </ng-template>
-    <ng-template #notCollapsed>
-      <button class="btn btn-primary mb-4" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="isCollapsed" aria-controls="eventtable">
-          <i class="fas fa-plus"></i>
-      </button>
-    </ng-template>
-    <div id="eventtable" class="table-responsive" [ngbCollapse]="!isCollapsed">
+    <a *ngIf="router.url === '/'" routerLink="/events">
+    <button class="btn btn-primary mb-4" type="button">
+        <i class="fas fa-plus"></i> More Events
+    </button>
+    </a>
+    <div *ngIf="router.url === '/events'" id="eventtable" class="table-responsive">
       <table class="table table-striped mb-0">
         <thead class="thead-light">
           <tr>

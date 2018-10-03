@@ -6,6 +6,7 @@ import { UpcomingEventsComponent } from './upcoming-events/upcoming-events.compo
 
 const routes: Routes = [
   { path: '', component: UpcomingEventsComponent },
+  { path: 'events', component: UpcomingEventsComponent },
   { path: 'coc', component: CodeofConductComponent },
 ];
 
