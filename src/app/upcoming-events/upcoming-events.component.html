@@ -32,12 +32,12 @@
         </div>
       </div>
     </div>
-    <a *ngIf="router.url === '/'" routerLink="/events">
+    <a *ngIf="routerURL === '/'" routerLink="/events">
     <button class="btn btn-primary mb-4" type="button">
         <i class="fas fa-plus"></i> More Events
     </button>
     </a>
-    <div *ngIf="router.url === '/events'" id="eventtable" class="table-responsive">
+    <div *ngIf="routerURL === '/events'" id="eventtable" class="table-responsive">
       <table class="table table-striped mb-0">
         <thead class="thead-light">
           <tr>
