@@ -1,15 +1,21 @@
-<app-navbar></app-navbar>
-<main id="main" role="main">
-  <header class="jumbotron jumbotron-fluid bg-warning mt-0 pt-0 mb-0 pb-0">
-    <div class="container">
-      <div class=row>
-        <div class="col-12">
-          <h1 class="display-4" id="welcome">Welcome!</h1>
-          <p class="lead">The Space Coast Tech Club is dedicated to the tech and creative community of Brevard County, FL.</p>
-        </div>
+<header class="jumbotron jumbotron-fluid bg-warning mt-0 pt-0 mb-0 pb-0">
+  <div class="container">
+    <div class=row>
+      <div class="col-md-4">
+        <a href="/">
+          <img id="logo" src="/assets/img/logo.svg" class="mx-auto d-block" alt="Space Coast Tech Club" />
+        </a>
+      </div>
+      <div class="col-md-8 align-self-center">
+        <h1 id="title">Space Coast Tech Club</h1>
+        <p class="lead">The SCTC is dedicated to the tech and creative community of the Space Coast of Florida. We
+          provide a free and public Slack and share tech events happening in the area.</p>
       </div>
     </div>
-  </header>
+  </div>
+</header>
+<app-navbar></app-navbar>
+<main id="main" role="main">
   <router-outlet></router-outlet>
   <app-footer></app-footer>
 </main>
