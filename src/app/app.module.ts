@@ -14,6 +14,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { CodeofConductComponent } from './code-of-conduct/code-of-conduct.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SignUpCardsComponent } from './sign-up-cards/sign-up-cards.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { AppRoutingModule } from './app-routing.module';
     UpcomingEventsComponent,
     NavbarComponent,
     FooterComponent,
-    CodeofConductComponent
+    CodeofConductComponent,
+    SignUpCardsComponent
   ],
   imports: [
     BrowserModule,
