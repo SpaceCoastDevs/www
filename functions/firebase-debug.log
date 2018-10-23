@@ -1,0 +1,28 @@
+[debug] [2018-10-23T02:23:28.323Z] ----------------------------------------------------------------------
+[debug] [2018-10-23T02:23:28.324Z] Command:       /usr/local/bin/node /usr/local/bin/firebase serve --only functions
+[debug] [2018-10-23T02:23:28.325Z] CLI Version:   5.1.1
+[debug] [2018-10-23T02:23:28.325Z] Platform:      darwin
+[debug] [2018-10-23T02:23:28.325Z] Node Version:  v8.9.1
+[debug] [2018-10-23T02:23:28.325Z] Time:          Mon Oct 22 2018 22:23:28 GMT-0400 (EDT)
+[debug] [2018-10-23T02:23:28.325Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2018-10-23T02:23:28.334Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-10-23T02:23:28.334Z] > authorizing via signed-in user
+[debug] [2018-10-23T02:23:28.334Z] [iam] checking project space-coast-tech-club for permissions ["firebase.projects.get"]
+[debug] [2018-10-23T02:23:28.335Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/space-coast-tech-club:testIamPermissions  
+
+[debug] [2018-10-23T02:23:28.577Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-23T02:23:28.577Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/space-coast-tech-club  
+ 
+[debug] [2018-10-23T02:23:28.788Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Serving from '/Users/gilcreque/Desktop/community'...
+[info] 
+[info] i  functions: Preparing to emulate functions.
+[debug] [2018-10-23T02:23:29.127Z] Fetching environment
+[debug] [2018-10-23T02:23:29.128Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/175881198469:getServerAppConfig  
+ 
+[debug] [2018-10-23T02:23:29.305Z] <<< HTTP RESPONSE 200
+[debug] [2018-10-23T02:23:29.305Z] Starting @google-cloud/functions-emulator
+[debug] [2018-10-23T02:23:30.354Z] Parsing function triggers
+[info] ✔  functions: testEvents: http://localhost:5000/space-coast-tech-club/us-central1/testEvents
