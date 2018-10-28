@@ -19,15 +19,12 @@ FIND_GROUP_IDS_URL = `${API_URL}/find/groups?photo-host=secure&zip=${ZIP_CODES_T
 exports.addUpcomingMeetupTechEvents = functions.https.onRequest((req, res) => {
   let getGroupIDs = request(FIND_GROUP_IDS_URL, { json: true }, (err, res, body) => {
     if (err) { return console.log(err);}
-    console.log(body.map(group => group.id));
     GROUP_IDS_TO_INCLUDE = GROUP_IDS_TO_INCLUDE.concat(body.map(group => group.id));
-    console.log(GROUP_IDS_TO_INCLUDE);
   });
-  console.log(GROUP_IDS_TO_INCLUDE);
 
   UPCOMING_EVENTS_URL = `${API_URL}/2/events?offset=0&format=json&limited_events=False&group_id=${GROUP_IDS_TO_INCLUDE}&photo-host=secure&page=500&fields=&order=time&desc=false&status=upcoming&key=${API_KEY}`;
 
-  let upcomingMeetupTechEvents = request(`${UPCOMING_EVENTS_URL}`, { json: true}, (err, res, body) => {
+  let upcomingMeetupTechEvents = request(`${UPCOMING_EVENTS_URL}`, { json: true }, (err, res, body) => {
     if (err) { return console.log(err);}
     const events = body.results;
     if (typeof events === "object") {
