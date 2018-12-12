@@ -12,14 +12,20 @@ import { Event } from '../meetup-service/meetup-service.model';
 
 export class UpcomingEventsComponent implements OnInit {
 
-  public events: Observable<Event[]>;
+  public events: Event[] = [];
   public isCollapsed = false;
   public routerURL;
   constructor(private meetupService: MeetupService, private router: Router) { }
 
   ngOnInit() {
-    this.events = this.meetupService.getUpcomingEvents();
-    // console.log(this.events);
+    this.meetupService.getUpcomingEvents()
+      .subscribe(events => {
+        events.forEach( event => {
+            this.events.push(event);
+          }
+        );
+      });
+    console.log(this.events);
     this.routerURL = this.router.url;
   }
 }
