@@ -9,12 +9,12 @@
       <div *ngFor="let event of events.slice(0, 4)" class="col-xs-6 col-lg-3 mb-2 d-flex align-items-stretch">
         <div class="card border-primary flex-grow flex-fill">
           <div class="card-header">
-            <a href="{{ event.link }}">
+            <a href="{{ event.event_url }}">
               <h2 class="card-title small font-weight-bold text-uppercase">{{ event.name }}</h2>
             </a>
           </div>
           <div class="card-body">
-            <img *ngIf="event.featured_photo; else useGroupPhoto" class="card-img" src="{{ event.featured_photo.photo_link }}" alt="{{ event.name }}">
+            <img *ngIf="event.photo_url; else useGroupPhoto" class="card-img" src="{{ event.photo_url }}" alt="{{ event.name }}">
             <ng-template #useGroupPhoto>
               <img *ngIf="event.group.key_photo" class="card-img" src="{{ event.group.key_photo.photo_link }}" alt="{{ event.name }}">
             </ng-template>
@@ -24,7 +24,7 @@
               <li class="list-group-item">
                 <i class="fas fa-compass text-warning"></i> {{ event.venue ? event.venue.name : 'n/a' }}</li>
               <li class="list-group-item">
-                <i class="fas fa-calendar-alt text-warning"></i> {{ event.local_date ? ( event.local_date | date:'EEE MMM d' ) : 'n/a' }}</li>
+                <i class="fas fa-calendar-alt text-warning"></i> {{ event.time ? ( event.time | date:'EEE MMM d' ) : 'n/a' }}</li>
               <li class="list-group-item">
                 <i class="fas fa-clock text-warning"></i> {{ event.time| date:'h:mm aa' }}</li>
             </ul>
@@ -60,7 +60,7 @@
             <td class="d-none d-sm-table-cell">
               {{ event.venue ? event.venue.name : 'n/a' }}</td>
             <td>
-              {{ event.local_date ? ( event.local_date | date:'EEE MMM d' ) : 'n/a' }}</td>
+              {{ event.time ? ( event.time | date:'EEE MMM d' ) : 'n/a' }}</td>
             <td class="d-none d-sm-table-cell">
               {{ event.time| date:'h:mm aa' }}</td>
           </tr>
