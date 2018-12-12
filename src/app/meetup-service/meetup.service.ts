@@ -9,14 +9,16 @@ import { Event } from './meetup-service.model';
 export class MeetupService {
 
   private eventsCollection: AngularFirestoreCollection<Event>;
-  public events: Event[];
+  public events;
 
   constructor(private db: AngularFirestore) {
     db.collection('meetup-events').ref.onSnapshot(function (querySnapshot) {
+      const events = [];
       querySnapshot.forEach(function (doc) {
-        this.events.push(<Event>doc);
+        events.push(doc.data());
       });
-      console.log('Events: ' + this.events);
+      this.events = events;
+      console.log('Events: ' + events);
     });
   }
 
