@@ -21,7 +21,7 @@ exports.addUpcomingMeetupTechEvents = functions.https.onRequest((req, res) => {
     if (err) { return console.log(err);}
     console.log(body.map(group => group.id));
     GROUP_IDS_TO_INCLUDE = GROUP_IDS_TO_INCLUDE.concat(body.map(group => group.id));
-    console.log(GROUP_IDS_TO_INCLUDE);
+    return console.log(GROUP_IDS_TO_INCLUDE);
   });
   console.log(GROUP_IDS_TO_INCLUDE);
 
@@ -45,6 +45,8 @@ exports.addUpcomingMeetupTechEvents = functions.https.onRequest((req, res) => {
           });
       })
     }
+    return console.log("upcomingMeetupTechEvents Done");
+
   });
   return console.log("addUpcomingGroundswellMeetupEvents Done");
 });

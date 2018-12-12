@@ -1,0 +1,18 @@
+// Deny read/write access to all users under any conditions
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    match /{document=**} {
+      allow write: if false;
+      allow read: if false;
+    }
+
+    match /meetup-events/{eventId} {
+      allow read: if true;
+    }
+  }
+}
