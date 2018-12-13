@@ -12,20 +12,26 @@ export class MeetupService {
   }
 
   getUpcomingEvents(): Observable<Event[]> {
-    return this.getData().snapshotChanges().pipe(map(item => {
-      const events: Event[] = [];
-      item.map(a => {
-        const data = a.payload.doc.data() as Event;
-        data['$key'] = a.payload.doc.id;
-        events.push(data as Event);
-      });
+    const now = Date.now();
+    const eventRef = this.getData();
+    return eventRef
+      .snapshotChanges()
+      .pipe(map(item => {
+        const events: Event[] = [];
+        item.map(a => {
+          const data = a.payload.doc.data() as Event;
+          data['$key'] = a.payload.doc.id;
+          if (data.time >= now) {
+            events.push(data as Event);
+          }
+        });
 
-      return events;
-    }));
+        return events;
+      }));
   }
 
   private getData() {
-    return this.db.collection<Event>('meetup-events');
+    return this.db.collection<Event>('meetup-events', ref => ref.orderBy('time', 'asc'));
   }
 
 }
