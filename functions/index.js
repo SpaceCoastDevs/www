@@ -9,7 +9,7 @@ API_KEY = '5c483b7f507144933403e5d4311e48';
 CATEGORY_IDS_TO_INCLUDE = '34';
 ZIP_CODES_TO_INCLUDE = '32901,32922,32780';
 SEARCH_RADIUS = 20;
-GROUP_IDS_TO_EXCLUDE = '27306031,25219234,26307553,25328430'; //Unrelated or outside of Brevard County
+GROUP_IDS_TO_EXCLUDE = [27306031, 25219234, 26307553, 25328430]; //Unrelated or outside of Brevard County
 GROUP_IDS_TO_INCLUDE = [5292112]; //Groundswell to start
 LAT = 28.07;
 LON = -80.63;
@@ -18,18 +18,18 @@ FIND_GROUP_IDS_URL = `${API_URL}/find/groups?photo-host=secure&zip=${ZIP_CODES_T
 
 exports.addUpcomingMeetupTechEvents = functions.https.onRequest((req, res) => {
   let getGroupIDs = request(FIND_GROUP_IDS_URL, { json: true }, (err, res, body) => {
-    if (err) { return console.log(err);}
+    if (err) { return console.log(err); }
     GROUP_IDS_TO_INCLUDE = GROUP_IDS_TO_INCLUDE.concat(body.map(group => group.id));
-<<<<<<< HEAD
+    GROUP_IDS_TO_INCLUDE = GROUP_IDS_TO_INCLUDE.filter(id => {
+      return !GROUP_IDS_TO_EXCLUDE.includes(id);
+    });
     return console.log(GROUP_IDS_TO_INCLUDE);
-=======
->>>>>>> 5a5c2cdaccfa972a693dcaf7d530274c41d986fb
   });
 
-  UPCOMING_EVENTS_URL = `${API_URL}/2/events?offset=0&format=json&limited_events=False&group_id=${GROUP_IDS_TO_INCLUDE}&photo-host=secure&page=500&fields=&order=time&desc=false&status=upcoming&key=${API_KEY}`;
+  UPCOMING_EVENTS_URL = `${API_URL}/2/events?fields=group_photo&offset=0&format=json&limited_events=False&group_id=${GROUP_IDS_TO_INCLUDE}&photo-host=secure&page=500&order=time&desc=false&status=upcoming&key=${API_KEY}`;
 
   let upcomingMeetupTechEvents = request(`${UPCOMING_EVENTS_URL}`, { json: true }, (err, res, body) => {
-    if (err) { return console.log(err);}
+    if (err) { return console.log(err); }
     const events = body.results;
     if (typeof events === "object") {
       Object.keys(events).forEach(event => {
@@ -46,7 +46,7 @@ exports.addUpcomingMeetupTechEvents = functions.https.onRequest((req, res) => {
           });
       })
     }
-    return console.log("upcomingMeetupTechEvents Done");
+    return console.log(UPCOMING_EVENTS_URL);
 
   });
   return console.log("addUpcomingGroundswellMeetupEvents Done");

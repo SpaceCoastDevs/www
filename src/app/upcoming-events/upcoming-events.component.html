@@ -16,7 +16,7 @@
           <div class="card-body">
             <img *ngIf="event.photo_url; else useGroupPhoto" class="card-img" src="{{ event.photo_url }}" alt="{{ event.name }}">
             <ng-template #useGroupPhoto>
-              <img *ngIf="event.group.key_photo" class="card-img" src="{{ event.group.key_photo.photo_link }}" alt="{{ event.name }}">
+              <img *ngIf="event.group.group_photo.photo_link" class="card-img" src="{{ event.group.group_photo.photo_link }}" alt="{{ event.name }}">
             </ng-template>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
@@ -51,7 +51,7 @@
         <tbody>
           <tr *ngFor="let event of events.slice(5)">
             <th scope="row">
-              <a class="text-danger" href="{{ event.link }}">
+              <a class="text-danger" href="{{ event.event_url }}">
                 <h2 class="card-title small font-weight-bold text-uppercase">{{ event.name }}</h2>
               </a>
             </th>
