@@ -80,17 +80,4 @@ exports.changeMeetupTechEventsToPast = functions.https.onRequest((req, res) => {
       )
       console.log("Chnaged stats of " + event) 
     })
-    // .then(querySnapshot => {
-    //   querySnapshot.forEach(event => {
-    //       event.update(
-    //         { status: "past" }
-    //       )
-    //   })
-    //   return console.log("Document updated written!");
-    // })
-    // .catch((error) => {
-    //   return console.error("Error updating document: ", error);
-    // });
-
-
 });
