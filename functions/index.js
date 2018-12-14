@@ -26,7 +26,7 @@ exports.addUpcomingMeetupTechEvents = functions.https.onRequest((req, res) => {
     return console.log(GROUP_IDS_TO_INCLUDE);
   });
 
-  UPCOMING_EVENTS_URL = `${API_URL}/2/events?fields=group_photo&offset=0&format=json&limited_events=False&group_id=${GROUP_IDS_TO_INCLUDE}&photo-host=secure&page=500&order=time&desc=false&status=upcoming&key=${API_KEY}`;
+  UPCOMING_EVENTS_URL = `${API_URL}/2/events?fields=group_photo,series&offset=0&format=json&limited_events=False&group_id=${GROUP_IDS_TO_INCLUDE}&photo-host=secure&page=500&order=time&desc=false&status=upcoming&key=${API_KEY}`;
 
   let upcomingMeetupTechEvents = request(`${UPCOMING_EVENTS_URL}`, { json: true }, (err, res, body) => {
     if (err) { return console.log(err); }
@@ -46,8 +46,51 @@ exports.addUpcomingMeetupTechEvents = functions.https.onRequest((req, res) => {
           });
       })
     }
-    return console.log(UPCOMING_EVENTS_URL);
+    return console.log('upcomingMeetupTechEvents Done');
 
   });
   return console.log("addUpcomingGroundswellMeetupEvents Done");
+});
+
+exports.changeMeetupTechEventsToPast = functions.https.onRequest((req, res) => {
+
+  const now = Date.now();
+  const oldEvents = [];
+
+  admin.firestore()
+    .collection('meetup-events')
+    .where("time", "<=", now)
+    .get()   
+    .then(querySnapshot => {
+      querySnapshot.forEach(event => {
+        oldEvents.push(event.id)
+      })
+      return console.log("created oldEvents");
+    })
+    .catch((error) => {
+      return console.error("Probelm creating oldEvents", error);
+    });
+
+    oldEvents.forEach(event => {
+      admin.firestore()
+      .collection('meetup-events')
+      .doc(event)
+      .update(
+        { status: "past" }
+      )
+      console.log("Chnaged stats of " + event) 
+    })
+    // .then(querySnapshot => {
+    //   querySnapshot.forEach(event => {
+    //       event.update(
+    //         { status: "past" }
+    //       )
+    //   })
+    //   return console.log("Document updated written!");
+    // })
+    // .catch((error) => {
+    //   return console.error("Error updating document: ", error);
+    // });
+
+
 });
