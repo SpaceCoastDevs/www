@@ -8,7 +8,7 @@
     <div id="event-highlight" class="row d-flex flex-wrap pb-4">
       <div *ngFor="let event of events.slice(0, 4)" class="col-xs-6 col-lg-3 mb-2 d-flex align-items-stretch">
         <div class="card border-primary flex-grow flex-fill">
-          <div class="card-header">
+          <div class="card-header d-flex align-items-center justify-content-center h-100">
             <a href="{{ event.event_url }}">
               <h2 class="card-title small font-weight-bold text-uppercase">{{ event.name }}</h2>
             </a>
@@ -18,7 +18,7 @@
             <ng-template #useGroupPhoto>
               <img *ngIf="event.group.group_photo.photo_link" class="card-img" src="{{ event.group.group_photo.photo_link }}" alt="{{ event.name }}">
             </ng-template>
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush pt-4">
               <li class="list-group-item">
                 <i class="fas fa-chevron-circle-right text-warning"></i> {{ event.group.name }}</li>
               <li class="list-group-item">
