@@ -5,37 +5,33 @@
         <h2 id="events">Upcoming Events</h2>
       </div>
     </div>
-    <div id="event-highlight" class="row d-flex flex-wrap pb-4">
-      <div *ngFor="let event of events.slice(0, 4)" class="col-xs-6 col-lg-3 mb-2 d-flex align-items-stretch">
-        <div class="card border-primary flex-grow flex-fill">
-          <div class="card-header">
-            <a href="{{ event.link }}">
-              <h2 class="card-title small font-weight-bold text-uppercase">{{ event.name }}</h2>
-            </a>
-          </div>
-          <div class="card-body">
-            <img *ngIf="event.featured_photo; else useGroupPhoto" class="card-img" src="{{ event.featured_photo.photo_link }}" alt="{{ event.name }}">
-            <ng-template #useGroupPhoto>
-              <img *ngIf="event.group.key_photo" class="card-img" src="{{ event.group.key_photo.photo_link }}" alt="{{ event.name }}">
-            </ng-template>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">
-                <i class="fas fa-chevron-circle-right text-warning"></i> {{ event.group.name }}</li>
-              <li class="list-group-item">
-                <i class="fas fa-compass text-warning"></i> {{ event.venue ? event.venue.name : 'n/a' }}</li>
-              <li class="list-group-item">
-                <i class="fas fa-calendar-alt text-warning"></i> {{ event.local_date ? ( event.local_date | date:'EEE MMM d' ) : 'n/a' }}</li>
-              <li class="list-group-item">
-                <i class="fas fa-clock text-warning"></i> {{ event.time| date:'h:mm aa' }}</li>
-            </ul>
-          </div>
+    <div id="event-highlight" class="card-deck mb-2 pb-4">
+      <a *ngFor="let event of events.slice(0, 4)" href="{{ event.link }}" class="card border-primary">
+        <div class="card-header d-flex align-items-center justify-content-center h-100">
+          <h3 class="card-title font-weight-bold text-uppercase">{{ event.name }}</h3>
         </div>
-      </div>
+        <img *ngIf="event.featured_photo; else useGroupPhoto" class="card-img d-flex" src="{{ event.featured_photo.photo_link }}"
+          alt="{{ event.name }}">
+        <ng-template #useGroupPhoto>
+          <img *ngIf="event.group.key_photo" class="card-img d-flex" src="{{ event.group.key_photo.photo_link }}" alt="{{ event.name }}">
+        </ng-template>
+        <div class="card-body d-flex flex-column h-100">
+          <p>
+            <i class="fas fa-chevron-circle-right text-warning"></i> {{ event.group.name }}</p>
+          <p>
+            <i class="fas fa-compass text-warning"></i> {{ event.venue ? event.venue.name : 'n/a' }}</p>
+          <p>
+            <i class="fas fa-calendar-alt text-warning"></i> {{ event.local_date ? ( event.local_date | date:'EEE
+            MMM d' ) : 'n/a' }}</p>
+          <p>
+            <i class="fas fa-clock text-warning"></i> {{ event.time| date:'h:mm aa' }}</p>
+        </div>
+      </a>
     </div>
     <a *ngIf="routerURL === '/'" routerLink="/events">
-    <button class="btn btn-primary mb-4" type="button">
+      <button class="btn btn-primary mb-4" type="button">
         <i class="fas fa-plus"></i> More Events
-    </button>
+      </button>
     </a>
     <div *ngIf="routerURL === '/events'" id="eventtable" class="table-responsive">
       <table class="table table-striped mb-0">
