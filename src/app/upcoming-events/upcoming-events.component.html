@@ -5,39 +5,68 @@
         <h2 id="events">Upcoming Events</h2>
       </div>
     </div>
-    <div id="event-highlight" class="row d-flex flex-wrap pb-4">
-      <div *ngFor="let event of events.slice(0, 4)" class="col-xs-6 col-lg-3 mb-2 d-flex align-items-stretch">
-        <div class="card border-primary flex-grow flex-fill">
-          <div class="card-header d-flex align-items-center justify-content-center h-100">
-            <a href="{{ event.event_url }}">
-              <h2 class="card-title small font-weight-bold text-uppercase">{{ event.name }}</h2>
-            </a>
-          </div>
-          <div class="card-body">
-            <img *ngIf="event.photo_url; else useGroupPhoto" class="card-img" src="{{ event.photo_url }}" alt="{{ event.name }}">
-            <ng-template #useGroupPhoto>
-              <img *ngIf="event.group.group_photo.photo_link" class="card-img" src="{{ event.group.group_photo.photo_link }}" alt="{{ event.name }}">
-            </ng-template>
-            <ul class="list-group list-group-flush pt-4">
-              <li class="list-group-item">
-                <i class="fas fa-chevron-circle-right text-warning"></i> {{ event.group.name }}</li>
-              <li class="list-group-item">
-                <i class="fas fa-compass text-warning"></i> {{ event.venue ? event.venue.name : 'n/a' }}</li>
-              <li class="list-group-item">
-                <i class="fas fa-calendar-alt text-warning"></i> {{ event.time ? ( event.time | date:'EEE MMM d' ) : 'n/a' }}</li>
-              <li class="list-group-item">
-                <i class="fas fa-clock text-warning"></i> {{ event.time| date:'h:mm aa' }}</li>
-            </ul>
-          </div>
+    <div id="event-highlight" class="card-deck mb-2 pb-4">
+      <a
+        *ngFor="let event of events.slice(0, 4)"
+        href="{{ event.link }}"
+        class="card border-primary"
+      >
+        <img
+          *ngIf="event.featured_photo; else useGroupPhoto"
+          class="card-img-top img-responsive"
+          src="{{ event.featured_photo.photo_link }}"
+          alt="{{ event.name }}"
+        />
+        <ng-template #useGroupPhoto>
+          <img
+            *ngIf="event.group.key_photo"
+            class="card-img-top img-responsive"
+            src="{{ event.group.key_photo.photo_link }}"
+            alt="{{ event.name }}"
+          />
+        </ng-template>
+        <h3
+          class="card-title font-weight-bold text-uppercase d-flex flex-column justify-content-between p-4"
+        >
+          {{ event.name }}
+        </h3>
+        <div
+          class="card-body d-flex flex-column justify-content-end align-items-stretch"
+        >
+          <p class="text-muted">
+            <i class="fas fa-chevron-circle-right text-warning"></i>
+            {{ event.group.name }}
+          </p>
+          <p class="text-muted">
+            <i class="fas fa-compass text-warning"></i>
+            {{ event.venue ? event.venue.name : "n/a" }}
+          </p>
+          <p class="text-muted">
+            <i class="fas fa-calendar-alt text-warning"></i>
+            {{
+              event.local_date
+                ? (event.local_date | date: "EEE
+            MMM d")
+                : "n/a"
+            }}
+          </p>
+          <p class="text-muted">
+            <i class="fas fa-clock text-warning"></i>
+            {{ event.time | date: "h:mm aa" }}
+          </p>
         </div>
-      </div>
+      </a>
     </div>
     <a *ngIf="routerURL === '/'" routerLink="/events">
-    <button class="btn btn-primary mb-4" type="button">
+      <button class="btn btn-primary mb-4" type="button">
         <i class="fas fa-plus"></i> More Events
-    </button>
+      </button>
     </a>
-    <div *ngIf="routerURL === '/events'" id="eventtable" class="table-responsive">
+    <div
+      *ngIf="routerURL === '/events'"
+      id="eventtable"
+      class="table-responsive"
+    >
       <table class="table table-striped mb-0">
         <thead class="thead-light">
           <tr>
@@ -51,18 +80,28 @@
         <tbody>
           <tr *ngFor="let event of events.slice(5)">
             <th scope="row">
-              <a class="text-danger" href="{{ event.event_url }}">
-                <h2 class="card-title small font-weight-bold text-uppercase">{{ event.name }}</h2>
+              <a class="text-danger" href="{{ event.link }}">
+                <h2 class="card-title small font-weight-bold text-uppercase">
+                  {{ event.name }}
+                </h2>
               </a>
             </th>
             <td class="d-none d-sm-table-cell">
-              {{ event.group.name }}</td>
+              {{ event.group.name }}
+            </td>
             <td class="d-none d-sm-table-cell">
-              {{ event.venue ? event.venue.name : 'n/a' }}</td>
+              {{ event.venue ? event.venue.name : "n/a" }}
+            </td>
             <td>
-              {{ event.time ? ( event.time | date:'EEE MMM d' ) : 'n/a' }}</td>
+              {{
+                event.local_date
+                  ? (event.local_date | date: "EEE MMM d")
+                  : "n/a"
+              }}
+            </td>
             <td class="d-none d-sm-table-cell">
-              {{ event.time| date:'h:mm aa' }}</td>
+              {{ event.time | date: "h:mm aa" }}
+            </td>
           </tr>
         </tbody>
       </table>

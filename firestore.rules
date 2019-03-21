@@ -11,7 +11,7 @@ service cloud.firestore {
       allow read: if false;
     }
 
-    match /meetup-events/{document=**}{
+    match /meetup-events/{document=**} {
       allow read: if true;
     }
   }

@@ -2,11 +2,22 @@
   <div class="container pt-4 pb-4">
     <div class="row">
       <div class="col-xs-12 col-md-4">
-        <h3 id="newsletter-sign-up">Sign up for our eventual newsletter</h3>
-        <form action="https://tinyletter.com/spacecoasttechclub" method="post" target="popupwindow" onsubmit="window.open('https://tinyletter.com/spacecoasttechclub', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true">
+        <h3 id="newsletter-sign-up">Sign up for our newsletter</h3>
+        <form
+          action="https://tinyletter.com/spacecoasttechclub"
+          method="post"
+          target="popupwindow"
+          onsubmit="window.open('https://tinyletter.com/spacecoasttechclub', 'popupwindow', 'scrollbars=yes,width=800,height=600');return true"
+        >
           <div class="form-group">
             <label for="tlemail">Enter your email address</label>
-            <input type="email" class="form-control" name="email" id="tlemail" aria-describedby="emailHelp" placeholder="Enter email"
+            <input
+              type="email"
+              class="form-control"
+              name="email"
+              id="tlemail"
+              aria-describedby="emailHelp"
+              placeholder="Enter email"
             />
           </div>
           <input type="hidden" value="1" name="embed" />
@@ -41,12 +52,17 @@
             </a>
           </li>
           <li class="list-group-item">
-            Active Members <img src="https://spacecoasttechclub.herokuapp.com/badge.svg" alt="Active Slack Members" title="Active Slack Members" />
+            Active Members
+            <img
+              src="https://spacecoasttechclub.herokuapp.com/badge.svg"
+              alt="Active Slack Members"
+              title="Active Slack Members"
+            />
           </li>
         </ul>
       </div>
       <div class="col-xs-12 col-md-4">
-        <p>&copy; Space Coast Tech Club 2018</p>
+        <p>&copy; Space Coast Tech Club {{ currentDate | date: "yyyy" }}</p>
       </div>
     </div>
   </div>
