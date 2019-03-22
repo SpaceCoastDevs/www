@@ -8,7 +8,7 @@
     <div id="event-highlight" class="card-deck mb-2 pb-4">
       <a
         *ngFor="let event of events.slice(0, 4)"
-        href="{{ event.link }}"
+        href="/events/{{ event.id }}"
         class="card border-primary"
       >
         <img
@@ -19,9 +19,9 @@
         />
         <ng-template #useGroupPhoto>
           <img
-            *ngIf="event.group.key_photo"
+            *ngIf="event.group.group_photo"
             class="card-img-top img-responsive"
-            src="{{ event.group.key_photo.photo_link }}"
+            src="{{ event.group.group_photo.photo_link }}"
             alt="{{ event.name }}"
           />
         </ng-template>
@@ -39,20 +39,18 @@
           </p>
           <p class="text-muted">
             <i class="fas fa-compass text-warning"></i>
-            {{ event.venue ? event.venue.name : "n/a" }}
+            {{ event.venue ? event.venue.name : 'n/a' }}
           </p>
           <p class="text-muted">
             <i class="fas fa-calendar-alt text-warning"></i>
             {{
-              event.local_date
-                ? (event.local_date | date: "EEE
-            MMM d")
-                : "n/a"
+              event.time ? (event.time | date: 'EEE
+            MMM d') : 'n/a'
             }}
           </p>
           <p class="text-muted">
             <i class="fas fa-clock text-warning"></i>
-            {{ event.time | date: "h:mm aa" }}
+            {{ event.time | date: 'h:mm aa' }}
           </p>
         </div>
       </a>
@@ -80,7 +78,7 @@
         <tbody>
           <tr *ngFor="let event of events.slice(5)">
             <th scope="row">
-              <a class="text-danger" href="{{ event.link }}">
+              <a class="text-danger" href="/events/{{ event.id }}">
                 <h2 class="card-title small font-weight-bold text-uppercase">
                   {{ event.name }}
                 </h2>
@@ -90,17 +88,13 @@
               {{ event.group.name }}
             </td>
             <td class="d-none d-sm-table-cell">
-              {{ event.venue ? event.venue.name : "n/a" }}
+              {{ event.venue ? event.venue.name : 'n/a' }}
             </td>
             <td>
-              {{
-                event.local_date
-                  ? (event.local_date | date: "EEE MMM d")
-                  : "n/a"
-              }}
+              {{ event.time ? (event.time | date: 'EEE MMM d') : 'n/a' }}
             </td>
             <td class="d-none d-sm-table-cell">
-              {{ event.time | date: "h:mm aa" }}
+              {{ event.time | date: 'h:mm aa' }}
             </td>
           </tr>
         </tbody>

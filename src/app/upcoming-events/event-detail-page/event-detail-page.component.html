@@ -1,0 +1,63 @@
+<section id="upcoming-events">
+  <div class="container">
+    <div class="row pt-4">
+      <div class="col-6 offset-3">
+        <div id="event-highlight" class="mb-2 pb-4">
+          <div class="card">
+            <img
+              *ngIf="event.featured_photo; else useGroupPhoto"
+              class="card-img-top img-responsive"
+              src="{{ event.featured_photo.photo_link }}"
+              alt="{{ event.name }}"
+            />
+            <ng-template #useGroupPhoto>
+              <img
+                *ngIf="event.group.group_photo"
+                class="card-img-top img-responsive"
+                src="{{ event.group.group_photo.photo_link }}"
+                alt="{{ event.name }}"
+              />
+            </ng-template>
+            <h2 id="events" class="font-weight-bold text-uppercase card-header">
+              {{ event.name }}
+            </h2>
+            <div
+              class="card-body d-flex flex-column justify-content-end align-items-stretch"
+            >
+              <p class="text-muted">
+                <i class="fas fa-chevron-circle-right text-warning"></i>
+                {{ event.group.name }}
+              </p>
+              <p class="text-muted">
+                <i class="fas fa-compass text-warning"></i>
+                {{ event.venue ? event.venue.name : 'n/a' }}
+              </p>
+              <p class="text-muted">
+                <i class="fas fa-calendar-alt text-warning"></i>
+                {{ event.time ? (event.time | date: 'EEE MMM d') : 'n/a' }}
+              </p>
+              <p class="text-muted">
+                <i class="fas fa-clock text-warning"></i>
+                {{ event.time | date: 'h:mm aa' }}
+              </p>
+              <a
+                href="{{ event.event_url }}"
+                role="button"
+                aria-pressed="true"
+                class="btn btn-warning  btn-block align-middle"
+              >
+                RSVP on <i class="fab fa-meetup fa-2x"></i>
+              </a>
+            </div>
+            <!--card-body-->
+          </div>
+          <!--card-->
+        </div>
+        <!--event-highlight-->
+      </div>
+      <!--col-->
+    </div>
+    <!--row-->
+  </div>
+  <!--container-->
+</section>
