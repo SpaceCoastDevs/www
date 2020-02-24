@@ -12,6 +12,7 @@ import { CodeofConductComponent } from './code-of-conduct/code-of-conduct.compon
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { UpcomingEventsComponent } from './upcoming-events/upcoming-events.component';
+import { ScullyLibModule } from '@scullyio/ng-lib';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,8 @@ import { UpcomingEventsComponent } from './upcoming-events/upcoming-events.compo
     }),
     HttpClientModule,
     HttpClientJsonpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ScullyLibModule
   ],
   providers: [],
   bootstrap: [AppComponent]

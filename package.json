@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "scully": "scully",
+    "scully:serve": "scully serve"
   },
   "private": true,
   "dependencies": {
@@ -26,6 +28,9 @@
     "@angular/router": "^9.0.2",
     "@angular/service-worker": "^9.0.2",
     "@ng-bootstrap/ng-bootstrap": "^6.0.0",
+    "@scullyio/init": "0.0.23",
+    "@scullyio/ng-lib": "latest",
+    "@scullyio/scully": "latest",
     "@types/auth0-js": "^9.12.4",
     "angularfire2": "^5.4.2",
     "auth0-js": "^9.12.2",
