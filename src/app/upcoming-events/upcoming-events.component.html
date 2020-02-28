@@ -8,7 +8,7 @@
     <div id="event-highlight" class="card-deck mb-2 pb-4">
       <a
         *ngFor="let event of events.slice(0, 4)"
-        href="/events/{{ event.id }}"
+        [routerLink]="['/events/', event.id]"
         class="card border-primary"
       >
         <img
@@ -43,10 +43,7 @@
           </p>
           <p class="text-muted">
             <i class="fas fa-calendar-alt text-warning"></i>
-            {{
-              event.time ? (event.time | date: 'EEE
-            MMM d') : 'n/a'
-            }}
+            {{ event.time ? (event.time | date: 'EEE MMM d') : 'n/a' }}
           </p>
           <p class="text-muted">
             <i class="fas fa-clock text-warning"></i>
@@ -78,7 +75,7 @@
         <tbody>
           <tr *ngFor="let event of events.slice(5)">
             <th scope="row">
-              <a class="text-danger" href="/events/{{ event.id }}">
+              <a class="text-danger" [routerLink]="['/events/', event.id]">
                 <h2 class="card-title small font-weight-bold text-uppercase">
                   {{ event.name }}
                 </h2>
