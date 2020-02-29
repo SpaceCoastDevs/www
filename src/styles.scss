@@ -1,32 +1,11 @@
-@import "_variables.scss";
+@import '_variables.scss';
 
 body {
   background-color: $warning !important;
 }
-#logo {
-  width: 100%;
-}
 
-#title, .jumbotron p  {
-  text-align: left;
-}
-
-#title {
-  font-family: 'Ubuntu Mono', monospace;
-  font-weight: bold;
-  color: #ffffff;
-  line-height: 1.2;
-  letter-spacing: normal;
-  text-transform: uppercase;
-  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-  font-size: 5vw;
-}
-
-.jumbotron {
-    background-color: $primary;
-}
-
-#upcoming-events, #code-of-conduct {
+#upcoming-events,
+#code-of-conduct {
   background-image: url('/assets/img/seigaiha.png');
   background-repeat: repeat;
   background-color: $primary;
@@ -43,14 +22,14 @@ footer {
   #title {
     text-align: center;
   }
-  .jumbotron p  {
+  .jumbotron p {
     text-align: justify;
   }
 }
 
 a {
   color: #212529;
-  }
+}
 
 @media (min-width: 768px) {
   #event-highlight h3 {

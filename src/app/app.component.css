@@ -1,0 +1,19 @@
+header {
+  background-color: #f38630;
+}
+
+#logo {
+  width: 12.5%;
+}
+
+#title {
+  display: inline;
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: bold;
+  color: #ffffff;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  font-size: 5vw;
+}
